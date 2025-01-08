@@ -7,7 +7,7 @@ public class apartmentModel {
     private int area;
     private int nbPeople;
     private String address;
-    private int ownerID;
+    private String uuid;
     private int availabilityID;
 
     // Getter et Setter pour id
@@ -65,12 +65,12 @@ public class apartmentModel {
     }
 
     // Getter et Setter pour owner
-    public int getOwnerID() {
-        return ownerID;
+    public String  getUuid() {
+        return uuid;
     }
 
-    public void setOwnerID(int owner) {
-        this.ownerID = ownerID;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     // Getter et Setter pour availability

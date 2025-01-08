@@ -25,11 +25,11 @@ public interface apartmentService {
 //begin of modifiable zone(Javadoc).......C/bd6a5024-d483-4551-a9f0-d91e1a1d92a7
 
 //end of modifiable zone(Javadoc).........E/bd6a5024-d483-4551-a9f0-d91e1a1d92a7
-    boolean removeAppartement(final apartmentModel appartementId);
+    void removeAppartement(final String id);
 
 //begin of modifiable zone(Javadoc).......C/b2f24cc4-0a29-4c39-bad6-c004c43a4482
 
 //end of modifiable zone(Javadoc).........E/b2f24cc4-0a29-4c39-bad6-c004c43a4482
-    apartmentModel updateAppartement(final apartmentModel newAppartement);
+ apartmentModel updateApartment(String id, apartmentModel apartement);
 
 }

@@ -1,9 +1,6 @@
 CREATE DATABASE IF NOT EXISTS projet;
 USE projet;
 
-
--- Apartments & Availability
-
 CREATE TABLE IF NOT EXISTS apartment(
     id VARCHAR(36) PRIMARY KEY,
     nb_piece INT NOT NULL,
@@ -11,45 +8,130 @@ CREATE TABLE IF NOT EXISTS apartment(
     area INT NOT NULL,
     nb_people INT NOT NULL,
     adress VARCHAR(255),
-    owner_id INT,
+    uuid VARCHAR(36),
     availability_id INT,
-    INDEX idx_owner_id (owner_id),
+    INDEX idx_uuid (uuid),
     INDEX idx_availability_id (availability_id)
 );
 
 
 CREATE TABLE IF NOT EXISTS owner(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    lastname VARCHAR(255) NOT NULL,
-    surname VARCHAR(255) NOT NULL,
-    contact VARCHAR(255),
-    adress VARCHAR(255)
+    uuid VARCHAR(36) PRIMARY KEY,
+    id_address VARCHAR(36),
+    name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    personal_phone VARCHAR(255),
+    job VARCHAR(255),
+    work_phone VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS apartmentavailability(
+CREATE TABLE IF NOT EXISTS availability (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    availability ENUM('free','occupied','underConstruction'),
-    week INT NOT NULL,
+    availability VARCHAR(52) NOT NULL,
     year INT NOT NULL
 );
 
-INSERT INTO apartment (id, nb_piece, price, area, nb_people, adress, owner_id, availability_id) VALUES
-('e6c8d15a-3cda-4ef3-99d4-bbb7e0e1e23f', 3, 1200, 75, 4, '123 Main Street', 1, 2),
-('88a10707-3d37-4f2b-b57b-5d93db7d3073', 2, 900, 50, 2, '456 Elm Street', 2, 3),
-('5f0be6be-56a1-4d96-8bbd-05354a9d84c2', 4, 1500, 90, 5, '789 Oak Avenue', 3, 1),
-('dcd079ea-9a3e-41f5-9a8d-1200c24a0149', 1, 600, 30, 1, '321 Pine Road', 4, 4),
-('0777b23b-2e2a-44fc-a953-dac8d06f400a', 5, 2000, 120, 6, '654 Maple Boulevard', 5, 5);
+INSERT INTO apartment (id, nb_piece, price, area, nb_people, adress, uuid, availability_id) VALUES
+('3a51db0c-8ac7-4a89-bb3c-cd49710ec99a', 1, 800, 45, 1, '100 Main Street', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 1),
+('af22aac2-cf2e-44b6-bd9e-9dde37ad2d47', 2, 1200, 75, 3, '101 Elm Street', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 2),
+('15ed7376-8c9b-4521-b9eb-f8664434cf24', 3, 1600, 105, 5, '102 Oak Avenue', 'c3f207fa-6327-4d62-jklo-7ac621af68f9', 3),
+('4c24ca97-742f-42b5-941b-35b84ba0d4e6', 4, 2000, 135, 4, '103 Pine Road', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 4),
+('33b2639d-2907-4eef-b42a-66b8da10f00f', 5, 2400, 165, 6, '104 Maple Boulevard', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 5),
+('7a853be7-c6d3-43af-a101-9598886cde5d', 1, 1300, 70, 3, '105 Sunset Drive', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 6),
+('5727b823-bb06-445a-ae53-5e838ad0b2ff', 2, 1700, 100, 2, '106 Birch Lane', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 7),
+('bb66beb7-6eb2-45b8-8898-fc8bca90e795', 3, 2100, 130, 4, '107 Cedar Avenue', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 8),
+('f7f1910f-c8e2-415a-843b-6d0204fc7026', 4, 2500, 160, 6, '108 Spruce Court', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 9),
+('47f18278-86c1-4d2d-b7c4-d813ca9ff721', 5, 2900, 190, 5, '109 Chestnut Avenue', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 10),
+('be06f608-83ab-4e42-b929-bb813618b3fd', 5, 2900, 190, 6, '149 Chestnut Avenue', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 11),
+('c8b3e4a2-b916-4d87-9b3a-f51c01c4a71d', 1, 700, 40, 1, '150 Willow Lane', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 12),
+('a0f2bdc5-8c59-4a60-ae95-7b6fcd1e6e18', 2, 1100, 65, 2, '151 Aspen Boulevard', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 13),
+('97c1b45e-7ed9-4856-9a69-fcc1d1f5c091', 3, 1500, 95, 3, '152 Redwood Street', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 14),
+('d28a5f89-0ff4-44d7-b4b7-2e8d0c5ef468', 4, 1900, 125, 4, '153 Cypress Drive', 'c3f207fa-6327-4d62-jklo-7ac621af68f9', 15),
+('17a6d348-b07a-4d83-b5ad-5e2a44d25bd9', 5, 2300, 155, 5, '154 Sequoia Avenue', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 16),
+('3c659fa4-7fc5-4ebf-b1a6-dcb598236816', 1, 850, 50, 2, '155 Poplar Lane', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 17),
+('06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2', 2, 1250, 85, 3, '156 Magnolia Street', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 18),
+('ff9187a8-6cb1-4b6a-8049-972e8e9b5b42', 3, 1750, 115, 4, '157 Alder Road', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 19),
+('4897f619-d158-4e0d-bdc2-435cfdc10c94', 4, 2200, 145, 5, '158 Fir Avenue', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 20),
+('e5c1fdbc-6b64-4c32-89ad-9b8fb4f79580', 5, 2600, 175, 6, '159 Pine Street', 'c3f207fa-6327-4d62-jklo-7ac621af68f9', 21),
+('a6dbb5a8-6e87-4b91-ae87-b4d5e0984f45', 1, 750, 45, 1, '160 Walnut Lane', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 22),
+('b8719f27-1f12-4d9e-b435-d9841b9f3c57', 2, 1150, 70, 2, '161 Beech Avenue', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 23),
+('4ccf29d3-fc48-4e02-b9a4-8d15a95f4371', 3, 1550, 100, 3, '162 Maple Court', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 24),
+('d3e0a5a6-4dfb-435f-8a36-b71f5dc85679', 4, 1950, 130, 4, '163 Cedar Street', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 25),
+('6a5fbd97-97df-4cb3-8a18-57385e8e6f10', 5, 2350, 160, 5, '164 Oakwood Drive', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 26),
+('80c5b492-7b12-44f6-bbfd-7b0df1e80b5d', 1, 800, 50, 2, '165 Birch Road', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 27),
+('f8b4e1cb-3b1d-4a49-a8d8-1a52f5d5f2af', 2, 1200, 80, 3, '166 Elmwood Street', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 28),
+('1d75b4e6-391a-4878-abc5-6b65f6f2b0f2', 3, 1700, 110, 4, '167 Fir Court', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 29),
+('95c8f5a3-9c7b-42b3-a76e-f75c8bd2a5f1', 4, 2150, 140, 5, '168 Redwood Avenue', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 30),
+('2e98c7b1-7f45-44b6-b74d-91e72dcbf9a5', 5, 2550, 170, 6, '169 Cypress Lane', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 31),
+('7d5b9f3c-5b34-4ebd-93cb-d8f4d89c5a17', 1, 770, 48, 1, '170 Aspen Lane', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 32),
+('b6f3e9c7-43e7-4c12-ae7f-19d5f2b3e5c1', 2, 1170, 73, 2, '171 Alder Street', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 33),
+('4fd8a3e5-6e91-4f3b-a32d-c9a8f7d4e2a5', 3, 1570, 103, 3, '172 Birch Boulevard', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 34),
+('3e9d2c8b-57f2-4a9d-b74e-d3f6a2e1b8c9', 4, 1970, 133, 4, '173 Pinewood Drive', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 35),
+('9b6e2c3d-4b8f-453a-b92e-f7d5a3c8e4f1', 5, 2370, 163, 5, '174 Willow Avenue', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 36),
+('c8e9f5d3-7a5b-4cb8-9f7d-e3d6a9b1f5c7', 1, 850, 55, 2, '175 Elmwood Court', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 37),
+('d4f2a5b8-5c7f-493b-87d4-f9e8c7d2b5f1', 2, 1250, 85, 3, '176 Oak Lane', 'c3f207fa-6327-4d62-jklo-7ac621af68f9', 38),
+('f7b3c8e9-4f9d-487b-a65c-d3e9a7b1f6c9', 3, 1750, 115, 4, '177 Maplewood Street', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 39),
+('e1b6a3d7-5c4e-493b-97f2-b7c8d5f2a9e4', 4, 2150, 145, 5, '178 Sequoia Drive', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 40),
+('a9c7e5f2-7b4f-4d8b-b93e-f6d3e8b1c7f5', 5, 2550, 175, 6, '179 Cedarwood Lane', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 6),
+('c4f8e3b1-9d6f-4a7b-8c3e-f5a9d2e7b6f4', 1, 780, 47, 1, '180 Oakwood Avenue', 'b4c8a9c2-e524-4f59-jklo-054b73057465', 17),
+('b7c5e4a9-3f8d-4b7e-a65d-d9f2a7b3c8f9', 2, 1180, 72, 2, '181 Pinecone Street', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 8),
+('d6f2b8a3-5e7f-4c9b-a84d-c7f5a3e9b2c8', 3, 1580, 102, 3, '182 Birchwood Court', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 29),
+('e3c9b7d5-4f8a-493e-97c8-a5d9f7e3b6f2', 4, 1980, 132, 4, '183 Maplewood Lane', 'c3f207fa-6327-4d62-jklo-7ac621af68f9', 10),
+('f9a7b5c3-8d2e-4f6b-a94c-d5c3e8b1f7a6', 5, 2380, 162, 5, '184 Redwood Boulevard', 'c8bb4f84-d394-40c9-jklo-9b292f27f4ff', 31),
+('c8b7f5d3-4a9f-4e8b-96c3-f2a7d9b1e3c7', 1, 830, 53, 2, '185 Sequoia Avenue', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 12),
+('a5c8e3d7-7b6f-4f9a-b84e-d3f2b9a7c8f5', 2, 1230, 83, 3, '186 Fir Street', 'ecb9d879-9a9b-4d85-jklo-5867e827efb9', 3),
+('e9b2a7d5-5f8c-4d7b-a92e-f7d6a3c9b8f4', 3, 1730, 113, 4, '187 Cypress Road', 'b4f9a7da-0b09-4e42-jklo-06be4327f1e4', 14),
+('b6f9c7e4-3d5f-493b-97a8-c5e8f2b1a9d7', 4, 2130, 143, 5, '188 Willow Lane', 'a8dff5c7-8d88-4fcb-jklo-e4a09de05e36', 35),
+('d3f2a9b7-4f8e-4c6b-b93f-e7a5c8d9b1f6', 5, 2530, 173, 6, '189 Elm Avenue', 'a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1', 1);
 
-INSERT INTO owner (lastname, surname, contact, adress) VALUES
-('Smith', 'John', 'smith@example.com', '123 Main Street'),
-('Johnson', 'Emily', 'johnson@example.com', '456 Elm Street'),
-('Williams', 'Michael', 'williams@example.com', '789 Oak Avenue'),
-('Brown', 'Sarah', 'brown@example.com', '321 Pine Road'),
-('Jones', 'Robert', 'jones@example.com', '654 Maple Boulevard');
+INSERT INTO owner (uuid, id_address, name, first_name, email, personal_phone, job, work_phone) VALUES
+('a8dff5c7-8d88-4fcb-jklo-e4a09de05e36','a8dff5c7-8d88-4fcb-8d24-e4a09de05e36','Dupont','Jean','jean.dupont@example.com',601020304,'Développeur',140234567),
+('ecb9d879-9a9b-4d85-jklo-5867e827efb9','ecb9d879-9a9b-4d85-b0b2-5867e827efb9','Martin','Sophie','sophie.martin@example.com',612345678,'Responsable RH',148765432),
+('c3f207fa-6327-4d62-jklo-7ac621af68f9','c3f207fa-6327-4d62-9d56-7ac621af68f9','Lemoine','Pierre','pierre.lemoine@example.com',634567890,'Chef de projet',132456789),
+('b4c8a9c2-e524-4f59-jklo-054b73057465','b4c8a9c2-e524-4f59-9f91-054b73057465','Leblanc','Claire','claire.leblanc@example.com',622334455,'Marketing Manager',145667788),
+('a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1','a1b08f23-84b9-4eac-9483-97c7cd1fd0c1','Pires','Lucas','lucas.pires@example.com',701020304,'Développeur Backend',150234567),
+('b4f9a7da-0b09-4e42-jklo-06be4327f1e4','b4f9a7da-0b09-4e42-81c4-06be4327f1e4','Tremblay','Alice','alice.tremblay@example.com',712345678,'Chef de produit',178765432),
+('c8bb4f84-d394-40c9-jklo-9b292f27f4ff','c8bb4f84-d394-40c9-b215-9b292f27f4ff','Fournier','Éric','eric.fournier@example.com',722334455,'Directeur technique',132345678);
 
-INSERT INTO apartmentavailability (availability, week, year) VALUES
-('free', 3, 2024),
-('occupied', 19, 2024),
-('underConstruction', 5, 2024),
-('free', 12, 2024),
-('occupied', 46, 2024);
+INSERT INTO availability (availability, year) VALUES
+('1012022022120102021020201201212101020100201012020202', 2024),
+('0001022022120100020102021102010202021001101201000100', 2024),
+('1010101102021012022020201210012020201021201201020101', 2024),
+('1201020202022011021021021201011022010210212002102010', 2024),
+('1101100101022020212010211101200210210220201021210201', 2024),
+('2012101020200101202012101102201010202110202010120120', 2024),
+('0201201010220112102212020101010210102120201020211200', 2024),
+('0011012121202121020202020202102011010102012010120201', 2024),
+('1102021202011011021020102111001012020201012112010210', 2024),
+('1202010120210101211202100220210110102002021202010212', 2024),
+('1012022022120210202012012121010201002010120202020201', 2024),
+('0001022001000201020211020102020210011012010021020100', 2024),
+('1010020210120220202012100120202010212012020201020101', 2024),
+('0202020220110210210212010110220102102101212002102010', 2024),
+('1101100101022020212010211101102101120220201021210201', 2024),
+('2012101020200101202012012010212010202110202010120120', 2024),
+('0201201010220112102201012011010210102120201020211200', 2024),
+('0011012121202121020210210202102011010102012010120201', 2024),
+('1102021202011011022120102111001012020201012112010210', 2024),
+('1202010120210120211202100220210110102002021202010212', 2024),
+('1012022022020210202012012121010201002010120202020201', 2024),
+('0001022022000201020211020102020210011012010021020100', 2024),
+('1010101100120220202012100120202010212012020201020101', 2024),
+('1201020220110210210212010110220102102101212002102010', 2024),
+('1101100101022020212010211101102101120220201021210201', 2024),
+('2012101020200101202012102010212010202110202010120120', 2024),
+('0201201010220112102201012011010210102120201020211200', 2024),
+('0011012121202121020210210202102011010102012010120201', 2024),
+('1102021202010210202120102111001012020201012112010210', 2024),
+('1202010120210101202021120220210110102002021202010212', 2024),
+('1012022022120102021012012121010201002010120202020201', 2024),
+('0001022022120100020102021102020210011012010021020100', 2024),
+('1010101102021012022020100120202010212012020201020101', 2024),
+('1201020202022011020212010110220102102101212002102010', 2024),
+('1101100101022020102111012002102101120220201021210201', 2024),
+('2012101020212020121011022010212010202110202010120120', 2024),
+('0201201010220112102212020101010210102120201020211200', 2024),
+('0011012121202121020202010202102011010102012010120201', 2024),
+('1102021202011011021120102111001012020201012112010210', 2024),
+('1202010120210100211202100220210110102002021202010212', 2024);
