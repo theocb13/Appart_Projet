@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS owner(
     work_phone VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS availability (
+CREATE TABLE IF NOT EXISTS apartmentavailability (
     id INT AUTO_INCREMENT PRIMARY KEY,
     availability VARCHAR(52) NOT NULL,
     year INT NOT NULL
@@ -94,7 +94,7 @@ INSERT INTO owner (uuid, id_address, name, first_name, email, personal_phone, jo
 ('b4f9a7da-0b09-4e42-jklo-06be4327f1e4','b4f9a7da-0b09-4e42-81c4-06be4327f1e4','Tremblay','Alice','alice.tremblay@example.com',712345678,'Chef de produit',178765432),
 ('c8bb4f84-d394-40c9-jklo-9b292f27f4ff','c8bb4f84-d394-40c9-b215-9b292f27f4ff','Fournier','Éric','eric.fournier@example.com',722334455,'Directeur technique',132345678);
 
-INSERT INTO availability (availability, year) VALUES
+INSERT INTO apartmentavailability (availability, year) VALUES
 ('1012022022120102021020201201212101020100201012020202', 2024),
 ('0001022022120100020102021102010202021001101201000100', 2024),
 ('1010101102021012022020201210012020201021201201020101', 2024),

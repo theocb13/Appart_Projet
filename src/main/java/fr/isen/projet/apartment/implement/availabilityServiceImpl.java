@@ -19,7 +19,7 @@ public class availabilityServiceImpl implements availabilityService{
     @Override
     public List<availabilityModel> getAllDispo() {
         List<availabilityModel> availabilities = new ArrayList<>();
-        String sql = "SELECT * FROM availability";
+        String sql = "SELECT * FROM apartmentavailability";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -38,7 +38,7 @@ public class availabilityServiceImpl implements availabilityService{
 
     @Override
     public availabilityModel getDispoById(int id) {
-        String sql = "SELECT * FROM availability WHERE id = ?";
+        String sql = "SELECT * FROM apartmentavailability WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -60,7 +60,7 @@ public class availabilityServiceImpl implements availabilityService{
 
     @Override
     public availabilityModel addDispo(availabilityModel dispo) {
-        String sql = "INSERT INTO availability (id, availability, year) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO apartmentavailability (id, availability, year) VALUES (?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, dispo.getId());
@@ -75,7 +75,7 @@ public class availabilityServiceImpl implements availabilityService{
 
     @Override
     public void removeDispo(int id) {
-        String sql = "DELETE FROM availability WHERE id = ?";
+        String sql = "DELETE FROM apartmentavailability WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, id);
@@ -90,7 +90,7 @@ public class availabilityServiceImpl implements availabilityService{
 
     @Override
     public availabilityModel updateDispo(int id, availabilityModel newDispo) {
-        String sql = "UPDATE availability SET availability = ?, year = ? WHERE id = ?";
+        String sql = "UPDATE apartmentavailability SET availability = ?, year = ? WHERE id = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 

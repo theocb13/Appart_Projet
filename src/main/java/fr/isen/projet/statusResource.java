@@ -21,7 +21,7 @@ public class statusResource {
     private static final String DB_USER = "root"; // Nom d'utilisateur
     private static final String DB_PASSWORD = "test"; // Mot de passe
 
-    private static final Set<String> ALLOWED_TABLES = Set.of("apartment", "owner", "availability");
+    private static final Set<String> ALLOWED_TABLES = Set.of("apartment", "owner", "apartmentavailability");
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getStatus() throws JsonProcessingException {
