@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "dae4e184-d2e5-41c8-9932-703f055ad01d",
+		"name": "Apartment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31181702"
+	},
+	"item": [
+		{
+			"name": "Apartement request",
+			"item": [
+				{
+					"name": "apart put id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/apartment/06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartment",
+								"06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apart get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apart post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"08F6a5D8-b9eb-47c7-9567-529b6dfbc5d2\",\r\n    \"nbPieces\": 2,\r\n    \"price\": 1250,\r\n    \"area\": 90,\r\n    \"nbPeople\": 8,\r\n    \"address\": \"156 Mongol Street\",\r\n    \"uuid\": \"b4c25df8-e524-4f59-jklo-054b73057465\",\r\n    \"availabilityID\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apart delete id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nbPieces\": 5,\r\n    \"price\": 1000000,\r\n    \"area\": 185,\r\n    \"nbPeople\": 3,\r\n    \"address\": \"156 Mongolito Street\",\r\n    \"uuid\": \"b4c8a9c2-e524-4f59-jklo-054b73057465\",\r\n    \"availabilityID\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartment/06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartment",
+								"06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "apart delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartment/06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartment",
+								"06b6a5c3-b9eb-47c7-95f7-529b6dfbc5d2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "availability request",
+			"item": [
+				{
+					"name": "availability get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartmentavailability",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartmentavailability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availability get id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartmentavailability/5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartmentavailability",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availability post ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 41,\r\n    \"availability\": \"0000000101022020212010211101200210210220201021210201\",\r\n    \"year\": 2026\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartmentavailability",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartmentavailability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availability put id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 40,\r\n    \"availability\": \"0101100101022020212010211101200210210220201021210201\",\r\n    \"year\": 2027\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartmentavailability/40",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartmentavailability",
+								"40"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "availability delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 40,\r\n    \"availability\": \"0101100101022020212010211101200210210220201021210201\",\r\n    \"year\": 2027\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/apartmentavailability/41",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"apartmentavailability",
+								"41"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "owner request",
+			"item": [
+				{
+					"name": "owner get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/owner",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "owner get id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/owner/a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"owner",
+								"a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "owner post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"uuid\": \"a1b085sd-84b9-4eac-jfg4-97c7cd1fd0c1\",\r\n    \"id_address\": \"a1b08f23-84b9-4eac-9483-97c7cd1fd0c1\",\r\n    \"first_name\": \"theo\",\r\n    \"email\": \"theo.pirlo@example.com\",\r\n    \"personal_phone\": \"701020304\",\r\n    \"job\": \"D├®veloppeur Backend\",\r\n    \"work_phone\": \"150234567\",\r\n    \"name\": \"Pirlo\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/owner",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"owner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "owner put id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"uuid\": \"a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1\",\r\n    \"id_address\": \"a1b08f23-84b9-4eac-9483-97c7cd1fd0c1\",\r\n    \"first_name\": \"jean\",\r\n    \"email\": \"jean.pierre@example.com\",\r\n    \"personal_phone\": \"701020304\",\r\n    \"job\": \"D├®veloppeur Backend\",\r\n    \"work_phone\": \"150234567\",\r\n    \"name\": \"Pierre\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/owner/a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"owner",
+								"a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "owner delete id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"uuid\": \"a1b08f23-84b9-4eac-jklo-97c7cd1fd0c1\",\r\n    \"id_address\": \"a1b08f23-84b9-4eac-9483-97c7cd1fd0c1\",\r\n    \"first_name\": \"jean\",\r\n    \"email\": \"jean.pierre@example.com\",\r\n    \"personal_phone\": \"701020304\",\r\n    \"job\": \"D├®veloppeur Backend\",\r\n    \"work_phone\": \"150234567\",\r\n    \"name\": \"Pierre\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/owner/a1b085sd-84b9-4eac-jfg4-97c7cd1fd0c1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"owner",
+								"a1b085sd-84b9-4eac-jfg4-97c7cd1fd0c1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
